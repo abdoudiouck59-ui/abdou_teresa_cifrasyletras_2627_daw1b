@@ -44,6 +44,37 @@ public class PalabraMasLarga {
 
         return new String(mezcla);
     }
+
+ 
+// Comprobar si se puede formar una palabra con las letras
+    public static boolean sePuedeFormar(String letras, String palabra) {
+
+        letras = letras.toUpperCase();
+        palabra = palabra.toUpperCase();
+
+        for (int i = 0; i < palabra.length(); i++) {
+
+            char letra = palabra.charAt(i);
+            int posicion = letras.indexOf(letra);
+
+            if (posicion == -1) {
+                return false;
+            }
+
+            letras = letras.substring(0, posicion)
+                    + letras.substring(posicion + 1);
+        }
+
+        return true;
+    }
+public static void main(String[] args) {
+
+    String letras = generarLetras(10);
+
+    System.out.println("Letras disponibles: " + letras);
+
+    System.out.println(sePuedeFormar("CASA", "CASA"));
+   }
 }
 
 
