@@ -7,8 +7,11 @@ public class CifrasExactas {
 
     public static void main(String[] args) throws Exception {
 
-        for(int i = 0; i < 10; i++) {
-        System.out.println("Mostar número   " + generarNumeroAleatorio(100, 999));
+        int[] auxiliares = new int[6];
+        for (int i = 0; i < 6; i++) {
+            auxiliares[i] = generarNumeroAleatorio(1, 10);
+            System.out.println("Número auxiliar    " + auxiliares[i]);
         }
+
     }
 }
