@@ -39,7 +39,7 @@ public class Main {
                     System.out.println("Modo rápido: en construcción.");
                     break;
                 case 3:
-                    System.out.println("Configuración: en construcción.");
+                    mostrarMenuConfiguracion();
                     break;
                 case 0:
                     System.out.println("¡Hasta pronto!");
@@ -48,12 +48,12 @@ public class Main {
         } while (opcion != 0);
     }
 
-    // ===== FUNCIONES DE INTERFAZ =====
+    //  FUNCIONES DE INTERFAZ 
 
     // Muestra el menú principal por pantalla
     static void mostrarMenuPrincipal() {
         System.out.println();
-        System.out.println("===== CIFRAS Y LETRAS =====");
+        System.out.println(" CIFRAS Y LETRAS ");
         System.out.println("1. Modo concurso");
         System.out.println("2. Modo rápido");
         System.out.println("3. Configuración");
@@ -78,6 +78,46 @@ public class Main {
         } while (numero < min || numero > max);
         return numero;
     }
-}
-    
 
+    
+    // MENÚ DE CONFIGURACIÓN 
+
+     static void mostrarMenuConfiguracion() {
+
+    int opcion;
+
+    do {
+        System.out.println();
+        System.out.println("===== CONFIGURACIÓN =====");
+        System.out.println("1. Modificar repeticiones de las pruebas");
+        System.out.println("2. Modificar cantidad de letras");
+        System.out.println("3. Modificar cantidad de operaciones");
+        System.out.println("0. Volver al menú principal");
+
+        opcion = leerEntero("Elige una opción: ", 0, 3);
+
+        switch (opcion) {
+
+            case 1:
+                repeticionesPruebas = leerEntero(
+                    "Introduce las repeticiones: ", 1, 100);
+                break;
+
+            case 2:
+                cantidadLetras = leerEntero(
+                    "Introduce la cantidad de letras: ", 8, 30);
+                break;
+
+            case 3:
+                cantidadOperaciones = leerEntero(
+                    "Introduce la cantidad de operaciones: ", 1, 100);
+                break;
+
+            case 0:
+                System.out.println("Volviendo al menú principal...");
+                break;
+        }
+
+    } while (opcion != 0);
+     }
+    }

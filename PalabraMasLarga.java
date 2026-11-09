@@ -67,6 +67,72 @@ public class PalabraMasLarga {
 
         return true;
     }
+    
+public static void jugar(int cantidad, java.util.Scanner teclado) {
+
+    String letras = generarLetras(cantidad);
+
+    System.out.println();
+    System.out.println("===== LA PALABRA MÁS LARGA =====");
+    System.out.println("Letras disponibles: " + letras);
+
+    // Turno del jugador 1
+    System.out.println();
+    System.out.println("Turno del jugador 1:");
+    System.out.print("Introduce tu palabra: ");
+    String palabra1 = teclado.nextLine().trim();
+
+    boolean valida1 = false;
+
+    if (palabra1.length() > 0 && sePuedeFormar(letras, palabra1)) {
+        System.out.println("¿El jugador contrario acepta la palabra? (S/N)");
+        String respuesta = teclado.nextLine();
+
+        if (respuesta.equalsIgnoreCase("S")) {
+            valida1 = true;
+        }
+    } else {
+        System.out.println("La palabra no se puede formar con las letras.");
+    }
+
+    // Turno del jugador 2
+    System.out.println();
+    System.out.println("Turno del jugador 2:");
+    System.out.print("Introduce tu palabra: ");
+    String palabra2 = teclado.nextLine().trim();
+
+    boolean valida2 = false;
+
+    if (palabra2.length() > 0 && sePuedeFormar(letras, palabra2)) {
+        System.out.println("¿El jugador contrario acepta la palabra? (S/N)");
+        String respuesta = teclado.nextLine();
+
+        if (respuesta.equalsIgnoreCase("S")) {
+            valida2 = true;
+        }
+    } else {
+        System.out.println("La palabra no se puede formar con las letras.");
+    }
+
+    // Comparar resultados
+    System.out.println();
+    System.out.println("===== RESULTADOS =====");
+
+    if (valida1 && !valida2) {
+        System.out.println("¡Gana el jugador 1!");
+    } else if (!valida1 && valida2) {
+        System.out.println("¡Gana el jugador 2!");
+    } else if (!valida1 && !valida2) {
+        System.out.println("Ningún jugador ha conseguido una palabra válida.");
+    } else if (palabra1.length() > palabra2.length()) {
+        System.out.println("¡Gana el jugador 1!");
+    } else if (palabra2.length() > palabra1.length()) {
+        System.out.println("¡Gana el jugador 2!");
+    } else {
+        System.out.println("¡Empate!");
+    }
+}
+
 public static void main(String[] args) {
 
     String letras = generarLetras(10);
