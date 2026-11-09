@@ -70,6 +70,10 @@ public class PalabraMasLarga {
     
 public static void jugar(int cantidad, java.util.Scanner teclado) {
 
+        if (cantidad < 8) {
+        System.out.println("Error: se necesitan al menos 8 letras.");
+        return;
+    }
     String letras = generarLetras(cantidad);
 
     System.out.println();
@@ -85,12 +89,23 @@ public static void jugar(int cantidad, java.util.Scanner teclado) {
     boolean valida1 = false;
 
     if (palabra1.length() > 0 && sePuedeFormar(letras, palabra1)) {
-        System.out.println("¿El jugador contrario acepta la palabra? (S/N)");
-        String respuesta = teclado.nextLine();
+        String respuesta;
 
-        if (respuesta.equalsIgnoreCase("S")) {
-            valida1 = true;
-        }
+do {
+    System.out.println("¿El jugador contrario acepta la palabra? (S/N)");
+   respuesta = teclado.nextLine().trim();
+
+    if (!respuesta.equalsIgnoreCase("S")
+            && !respuesta.equalsIgnoreCase("N")) {
+        System.out.println("Respuesta incorrecta. Escribe S o N.");
+    }
+
+} while (!respuesta.equalsIgnoreCase("S")
+        && !respuesta.equalsIgnoreCase("N"));
+
+if (respuesta.equalsIgnoreCase("S")) {
+    valida1 = true;
+}
     } else {
         System.out.println("La palabra no se puede formar con las letras.");
     }
@@ -103,16 +118,29 @@ public static void jugar(int cantidad, java.util.Scanner teclado) {
 
     boolean valida2 = false;
 
-    if (palabra2.length() > 0 && sePuedeFormar(letras, palabra2)) {
-        System.out.println("¿El jugador contrario acepta la palabra? (S/N)");
-        String respuesta = teclado.nextLine();
+   if (palabra2.length() > 0 && sePuedeFormar(letras, palabra2)) {
 
-        if (respuesta.equalsIgnoreCase("S")) {
-            valida2 = true;
+    String respuesta;
+
+    do {
+        System.out.println("¿El jugador contrario acepta la palabra? (S/N)");
+        respuesta = teclado.nextLine().trim();
+
+        if (!respuesta.equalsIgnoreCase("S")
+                && !respuesta.equalsIgnoreCase("N")) {
+            System.out.println("Respuesta incorrecta. Escribe S o N.");
         }
-    } else {
-        System.out.println("La palabra no se puede formar con las letras.");
+
+    } while (!respuesta.equalsIgnoreCase("S")
+            && !respuesta.equalsIgnoreCase("N"));
+
+    if (respuesta.equalsIgnoreCase("S")) {
+        valida2 = true;
     }
+
+} else {
+    System.out.println("La palabra no se puede formar con las letras.");
+}
 
     // Comparar resultados
     System.out.println();
@@ -124,9 +152,9 @@ public static void jugar(int cantidad, java.util.Scanner teclado) {
         System.out.println("¡Gana el jugador 2!");
     } else if (!valida1 && !valida2) {
         System.out.println("Ningún jugador ha conseguido una palabra válida.");
-    } else if (palabra1.length() > palabra2.length()) {
+    } else if (valida1 && valida2 && palabra1.length() > palabra2.length()) {
         System.out.println("¡Gana el jugador 1!");
-    } else if (palabra2.length() > palabra1.length()) {
+   } else if (valida1 && valida2 && palabra2.length() > palabra1.length()) {
         System.out.println("¡Gana el jugador 2!");
     } else {
         System.out.println("¡Empate!");
@@ -135,12 +163,8 @@ public static void jugar(int cantidad, java.util.Scanner teclado) {
 
 public static void main(String[] args) {
 
-    String letras = generarLetras(10);
+    java.util.Scanner teclado = new java.util.Scanner(System.in);
 
-    System.out.println("Letras disponibles: " + letras);
-
-    System.out.println(sePuedeFormar("CASA", "CASA"));
-   }
+    jugar(10, teclado);
 }
-
-
+}
