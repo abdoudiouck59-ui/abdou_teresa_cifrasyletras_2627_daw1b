@@ -21,6 +21,10 @@ public class CifrasExactas {
         System.out.println("¿Está el " + auxiliares[5] + "? " + esAuxiliar(auxiliares[5], auxiliares));
         System.out.println("¿Está el 99? " + esAuxiliar(99, auxiliares));
 
+        int elegido = pedirAuxiliar(auxiliares);
+        System.out.println("Has elegido el " + elegido);
+
+
     }
 
     static int calcularOperacion(int a, int b, int operacion) {
@@ -47,6 +51,19 @@ public class CifrasExactas {
             }
         }
         return false;
+    }
+    static int pedirAuxiliar(int[] auxiliares) {
+        int numero;
+
+        do {
+            numero = Main.leerEntero("Elige un número auxiliar: ", 1, 10);
+            if (esAuxiliar(numero, auxiliares) == false) {
+                System.out.println("Ese número no está entre los auxiliares. Elige otro.");
+            }
+        } while (esAuxiliar(numero, auxiliares) == false);
+
+        return numero;
+
 
     }
 }
