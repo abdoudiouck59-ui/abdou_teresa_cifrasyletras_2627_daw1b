@@ -68,11 +68,11 @@ public class PalabraMasLarga {
         return true;
     }
     
-public static void jugar(int cantidad, java.util.Scanner teclado) {
+public static int jugar(int cantidad, java.util.Scanner teclado) {
 
         if (cantidad < 8) {
         System.out.println("Error: se necesitan al menos 8 letras.");
-        return;
+        return 0;
     }
     String letras = generarLetras(cantidad);
 
@@ -143,21 +143,29 @@ if (respuesta.equalsIgnoreCase("S")) {
 }
 
     // Comparar resultados
+   
+    // Comparar resultados
     System.out.println();
     System.out.println("===== RESULTADOS =====");
 
     if (valida1 && !valida2) {
         System.out.println("¡Gana el jugador 1!");
+        return 1;
     } else if (!valida1 && valida2) {
         System.out.println("¡Gana el jugador 2!");
+        return 2;
     } else if (!valida1 && !valida2) {
         System.out.println("Ningún jugador ha conseguido una palabra válida.");
-    } else if (valida1 && valida2 && palabra1.length() > palabra2.length()) {
+        return 0;
+    } else if (palabra1.length() > palabra2.length()) {
         System.out.println("¡Gana el jugador 1!");
-   } else if (valida1 && valida2 && palabra2.length() > palabra1.length()) {
+        return 1;
+    } else if (palabra2.length() > palabra1.length()) {
         System.out.println("¡Gana el jugador 2!");
+        return 2;
     } else {
         System.out.println("¡Empate!");
+        return 0;
     }
 }
 
@@ -165,6 +173,6 @@ public static void main(String[] args) {
 
     java.util.Scanner teclado = new java.util.Scanner(System.in);
 
-    jugar(10, teclado);
+    jugar(12, teclado);
 }
 }
