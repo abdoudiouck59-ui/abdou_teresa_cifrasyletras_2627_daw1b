@@ -169,7 +169,7 @@ El proyecto se ha realizado en pareja utilizando Git y GitHub para compartir los
 - Propuesta y diseño de la prueba original.
 - Integración de las pruebas.
 - Comprobación y corrección de errores.
-- Preparación de la presentación final.
+
 
 ## 9. Estado actual del proyecto
 
