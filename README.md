@@ -2,32 +2,29 @@
 
 ## 1. Descripción del proyecto
 
-Este proyecto consiste en crear una versión sencilla del concurso Cifras y Letras utilizando Java.
+Este proyecto consiste en desarrollar una versión sencilla del concurso *Cifras y Letras* utilizando Java.
 
-El juego está pensado para dos jugadores que participan por turnos desde un mismo ordenador. Los jugadores tienen que superar diferentes pruebas relacionadas con los números, las operaciones matemáticas y las palabras.
+El juego está pensado para dos jugadores que participan por turnos desde un mismo ordenador. Incluye cuatro pruebas relacionadas con los números, las operaciones matemáticas, las palabras y la lógica.
 
 El objetivo es conseguir más puntos que el otro jugador y ganar el concurso.
 
-Con este proyecto practicamos lo que hemos aprendido en clase: variables, condicionales, bucles, funciones y validación de datos.
+Con este proyecto practicamos los contenidos aprendidos en clase: variables, condicionales, bucles, métodos, clases, números aleatorios y validación de datos.
 
 ## 2. Integrantes del equipo
 
 - Teresa Saavedra Pérez
 - Abdou Lahate Diouck
 
-**Curso:** 1.º DAW - Grupo B
-
+**Curso:** 1.º DAW - Grupo B  
 **Centro:** IES Albarregas
 
 ## 3. Pruebas del juego
-
-El proyecto tiene las siguientes pruebas:
 
 ### 3.1. La cifra exacta
 
 El programa genera un número objetivo de tres cifras y seis números aleatorios entre 1 y 10.
 
-Cada jugador tiene que intentar acercarse al número objetivo utilizando sumas, restas, multiplicaciones y divisiones.
+Cada jugador intenta acercarse al número objetivo utilizando operaciones matemáticas: suma, resta, multiplicación y división.
 
 Cada jugador puede realizar cinco operaciones. Gana quien consiga el resultado más cercano al número objetivo.
 
@@ -35,105 +32,121 @@ Cada jugador puede realizar cinco operaciones. Gana quien consiga el resultado m
 
 El programa genera letras aleatorias, con un mínimo de cuatro vocales y cuatro consonantes.
 
-Cada jugador tiene que escribir una palabra utilizando las letras disponibles.
+Cada jugador debe escribir una palabra utilizando las letras disponibles.
 
-El programa comprueba que la palabra se puede formar con esas letras, sin repetir ninguna más veces de las que aparece.
+El programa comprueba que la palabra se puede formar con esas letras, sin utilizar ninguna más veces de las que aparece.
 
-El otro jugador comprueba si la palabra existe en español y puede utilizar un diccionario.
+El otro jugador comprueba si la palabra existe en español y puede consultar un diccionario.
 
-Gana el jugador que consiga la palabra válida más larga. Si las dos palabras tienen la misma longitud y son válidas, hay empate.
+Gana quien consiga la palabra válida más larga. Si ambos jugadores consiguen la misma longitud, hay empate.
 
 ### 3.3. La calculadora humana
 
-En esta prueba, los jugadores tienen que resolver operaciones matemáticas mentalmente.
+Los jugadores deben resolver operaciones matemáticas mentalmente.
 
 El programa genera operaciones de suma, resta, multiplicación y división.
 
 Cada jugador introduce sus respuestas y el programa comprueba si son correctas.
 
-También se mide el tiempo que tarda cada jugador. Por cada respuesta incorrecta se añaden 20 segundos de penalización.
+También se mide el tiempo empleado. Por cada respuesta incorrecta se añaden 20 segundos de penalización.
 
 Gana el jugador que tenga el menor tiempo final.
 
-### 3.4. Prueba original
+### 3.4. Descifra el código (prueba original)
 
-También tenemos que crear una prueba nueva relacionada con Cifras y Letras.
+Esta es la cuarta prueba del proyecto.
 
-Primero debemos presentar nuestra idea al profesor y recibir su aprobación antes de programarla.
+El programa genera un código secreto de tres cifras diferentes. La primera cifra no puede ser cero.
+
+Cada jugador tiene un máximo de siete intentos para descubrir el código.
+
+Después de cada intento, el programa indica:
+
+- Cuántas cifras introducidas aparecen en el código secreto.
+- Cuántas cifras están colocadas en la posición correcta.
+
+El programa comprueba que cada respuesta tenga tres cifras diferentes.
+
+Gana el jugador que descubre el código en menos intentos. Si ninguno lo descubre, hay empate. También hay empate si ambos necesitan el mismo número de intentos.
 
 ## 4. Modos de juego
 
-El programa tendrá dos modos de juego:
-
 ### Modo concurso
 
-Los dos jugadores participan en todas las pruebas.
+Los dos jugadores participan en las cuatro pruebas.
 
-El ganador de cada prueba consigue un punto en el marcador global. Si hay empate, ninguno consigue ese punto.
+El ganador de cada prueba consigue un punto en el marcador global. En caso de empate, ninguno recibe puntos.
 
-Al finalizar todas las pruebas, gana el jugador que tenga más puntos.
+Al terminar todas las pruebas, el programa muestra el marcador y anuncia al ganador del concurso.
 
 ### Modo rápido
 
-Permite elegir una sola prueba y jugarla directamente.
+Permite seleccionar una prueba y jugarla directamente, sin tener que completar el concurso entero.
 
-El ganador será el jugador que consiga el mejor resultado en esa prueba.
+Las pruebas disponibles son:
+
+1. La palabra más larga.
+2. Descifra el código.
+3. La cifra exacta.
+4. La calculadora humana.
 
 ## 5. Configuración del programa
 
-El programa tiene un menú de configuración que permite cambiar algunos valores antes de jugar.
+El programa incluye un menú de configuración que permite modificar algunos valores.
 
-| Parámetro | Valor por defecto |
-|---|---|
-| Repeticiones de las pruebas | 1 |
-| Cantidad de letras | 10 |
-| Cantidad de operaciones | 5 |
+| Parámetro | Valor por defecto | Valores permitidos |
+|---|---|---|
+| Repeticiones de las pruebas | 1 | De 1 a 100 |
+| Cantidad de letras | 10 | De 8 a 30 |
+| Cantidad de operaciones | 5 | De 1 a 100 |
 
-La cantidad de letras debe ser como mínimo 8, porque siempre se necesitan al menos cuatro vocales y cuatro consonantes.
+La cantidad mínima de letras es ocho porque se necesitan al menos cuatro vocales y cuatro consonantes.
 
-El programa comprueba los valores introducidos para evitar errores.
+El programa valida los valores introducidos para evitar opciones fuera de los límites establecidos.
 
 ## 6. Archivos del proyecto
 
-Los archivos principales del proyecto son:
-
 | Archivo | Función |
 |---|---|
-| `Main.java` | Menú principal, configuración y marcadores. |
+| `Main.java` | Menú principal, modos de juego, configuración y marcador global. |
 | `CifrasExactas.java` | Prueba La cifra exacta. |
 | `PalabraMasLarga.java` | Prueba La palabra más larga. |
 | `CalculadoraHumana.java` | Prueba La calculadora humana. |
-| `README.md` | Información e instrucciones del proyecto. |
+| `DescifraCodigo.java` | Prueba original Descifra el código. |
+| `README.md` | Descripción, funcionamiento e instrucciones del proyecto. |
 
 ## 7. Cómo ejecutar el programa
 
-Para ejecutar el proyecto necesitamos tener Java instalado.
+Para ejecutar el proyecto es necesario tener Java instalado.
 
-**Desde Visual Studio Code:**
+### Desde Visual Studio Code
 
-1. Descargar el proyecto desde GitHub.
+1. Descargar o clonar el repositorio de GitHub.
 2. Abrir la carpeta del proyecto en Visual Studio Code.
-3. Abrir el archivo `Main.java`.
-4. Pulsar Run para iniciar el programa.
-5. Elegir una opción del menú principal.
+3. Abrir el terminal.
+4. Compilar los archivos Java.
+5. Ejecutar el programa principal.
+6. Seleccionar una opción del menú.
 
-También podemos ejecutar las pruebas por separado desde sus archivos Java, cuando tienen un método `main`.
+### Desde el terminal
 
-**Desde la terminal:**
+Primero compilamos los archivos:
 
-Primero compilamos los archivos Java:
-
-`javac *.java`
+```bash
+javac *.java
+```
 
 Después ejecutamos el programa principal:
 
-`java Main`
+```bash
+java Main
+```
 
-Para compilar correctamente, todos los archivos deben estar completos y sin errores.
+El menú principal permite elegir entre el modo concurso, el modo rápido, la configuración y la opción de salir.
 
 ## 8. Reparto del trabajo
 
-El proyecto se realiza en pareja y utilizamos GitHub para compartir los archivos y guardar los cambios.
+El proyecto se ha realizado en pareja utilizando Git y GitHub para compartir los archivos y organizar las modificaciones.
 
 ### Teresa Saavedra Pérez
 
@@ -146,38 +159,37 @@ El proyecto se realiza en pareja y utilizamos GitHub para compartir los archivos
 ### Abdou Lahate Diouck
 
 - Prueba La palabra más larga.
-- Menú de configuración y validación de sus valores.
-- Archivo README.
+- Prueba original Descifra el código.
+- Menú de configuración y validación de valores.
+- Elaboración del archivo README.
 
 ### Trabajo conjunto
 
 - Funciones comunes.
-- Diseño de la prueba original.
+- Propuesta y diseño de la prueba original.
 - Integración de las pruebas.
 - Comprobación y corrección de errores.
-- Preparación del PowerPoint final.
+- Preparación de la presentación final.
 
 ## 9. Estado actual del proyecto
 
-El proyecto todavía está en desarrollo.
+Las cuatro pruebas están programadas e integradas en el menú principal.
 
-La prueba La palabra más larga ya se ha probado por separado. Funciona la generación de letras, la comprobación de palabras y la comparación de resultados.
+Se han realizado pruebas de funcionamiento de diferentes partes del programa, incluyendo el modo rápido, la validación de entradas y la compilación de los archivos Java.
 
-El menú de configuración también se ha probado y permite cambiar la cantidad de letras.
+También se ha integrado el sistema de puntuación global en el modo concurso.
 
-Todavía tenemos que terminar de integrar las pruebas con el menú principal y comprobar que los marcadores funcionan correctamente.
-
-También queda pendiente la prueba original, que debemos consultar primero con el profesor.
+Queda pendiente completar la comprobación final del funcionamiento conjunto de todas las pruebas.
 
 ## 10. Herramientas utilizadas
 
-- **Java:** para programar el juego.
-- **Visual Studio Code:** para escribir y ejecutar el código.
-- **Git:** para guardar las versiones del proyecto.
-- **GitHub:** para compartir el trabajo entre los dos integrantes.
+- **Java:** lenguaje utilizado para desarrollar el programa.
+- **Visual Studio Code:** editor para escribir y ejecutar el código.
+- **Git:** herramienta para controlar las versiones.
+- **GitHub:** plataforma utilizada para compartir el trabajo entre los integrantes.
 
 ---
 
 Proyecto realizado por Teresa Saavedra Pérez y Abdou Lahate Diouck.
 
-1.º DAW - IES Albarregas.
+**1.º DAW - IES Albarregas**
