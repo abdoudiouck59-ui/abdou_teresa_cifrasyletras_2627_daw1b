@@ -35,10 +35,21 @@ public class Main {
                 case 1:
                     System.out.println("Modo concurso: en construcción.");
                     break;
-                case 2:
-                    System.out.println("Modo rápido: en construcción.");
-                    break;
-                case 3:
+               case 2:
+    System.out.println("=== MODO RAPIDO ===");
+    System.out.println("1. La palabra mas larga");
+    System.out.println("2. Descifra el codigo");
+
+    int prueba = leerEntero("Elige una prueba: ", 1, 2);
+    teclado.nextLine();
+
+    if (prueba == 1) {
+        PalabraMasLarga.jugar(cantidadLetras, teclado);
+    } else {
+        DescifraCodigo.jugar(teclado);
+    }
+    break;
+          case 3:
                     mostrarMenuConfiguracion();
                     break;
                 case 0:
