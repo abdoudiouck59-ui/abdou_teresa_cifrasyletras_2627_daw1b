@@ -104,7 +104,7 @@ public class CifrasExactas {
         int resultado = pedirAuxiliar(auxiliares);
 
         // Cada operación: el resultado anterior con otro auxiliar
-        for (int i = 1; i <= Main.cantidadOperaciones; i++) {
+        for (int i = 1; i <= 5; i++) {
             System.out.println("Operación " + i + ". Llevas: " + resultado);
             int segundo = pedirAuxiliar(auxiliares);
 
