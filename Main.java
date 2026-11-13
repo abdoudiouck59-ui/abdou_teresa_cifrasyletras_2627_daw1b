@@ -80,8 +80,9 @@ public class Main {
     // Modo concurso: se juegan las pruebas seguidas y el ganador de cada una
     // suma 1 punto en el marcador global
     static void jugarConcurso() {
-        puntosGlobalesJugador1 = 0;
-        puntosGlobalesJugador2 = 0;
+   
+    puntosGlobalesJugador1 = 0;
+    puntosGlobalesJugador2 = 0;
  
         for (int ronda = 1; ronda <= repeticionesPruebas; ronda++) {
             System.out.println();
@@ -93,6 +94,8 @@ public class Main {
             sumarPuntoGlobal(PalabraMasLarga.jugar(cantidadLetras, teclado));
  
             sumarPuntoGlobal(CalculadoraHumana.jugarCalculadoraHumana());
+            teclado.nextLine();
+            sumarPuntoGlobal(DescifraCodigo.jugar(teclado));
         }
  
         System.out.println();

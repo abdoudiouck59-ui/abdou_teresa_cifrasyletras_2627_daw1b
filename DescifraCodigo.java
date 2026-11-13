@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class DescifraCodigo {
 
-    public static void jugar(Scanner teclado) {
+    public static int jugar(Scanner teclado) {
         Random random = new Random();
 
         String codigo = "" + (random.nextInt(9) + 1);
@@ -37,16 +37,36 @@ while (codigo.length() < 3) {
         } else {
             System.out.println("Empate.");
         }
+         int ganador = 0;
 
-        System.out.println("El codigo secreto era: " + codigo);
+           if (intentos1 == 0 && intentos2 > 0) {
+           ganador = 2;
+}          else if (intentos2 == 0 && intentos1 > 0) {
+           ganador = 1;
+}          else if (intentos1 > 0 && intentos2 > 0) {
+           if (intentos1 < intentos2) {
+           ganador = 1;
+    }      else if (intentos2 < intentos1) {
+           ganador = 2;
+    }
+}
+
+return ganador;
+
     }
 
     public static int turno(Scanner teclado, String codigo, int jugador) {
         System.out.println("\n--- JUGADOR " + jugador + " ---");
 
         for (int intento = 1; intento <= 7; intento++) {
-            System.out.print("Intento " + intento + ": ");
-            String respuesta = teclado.nextLine().trim();
+           System.out.print("Intento " + intento + ": ");
+
+if (!teclado.hasNextLine()) {
+    System.out.println("\nNo hay más datos de entrada.");
+    return 0;
+}
+
+String respuesta = teclado.nextLine().trim();
 
             if (!respuesta.matches("[0-9]{3}")
                     || respuesta.charAt(0) == '0'
